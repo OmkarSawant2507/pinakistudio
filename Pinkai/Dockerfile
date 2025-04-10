@@ -1,14 +1,26 @@
-# Use an OpenJDK base image
-FROM openjdk:17-jdk-slim
+# === Stage 1: Build the application ===
+FROM maven:3.8.5-openjdk-17 AS build
 
-# Set the working directory
 WORKDIR /app
 
-# Copy the JAR file to the container
-COPY target/pinakistudio-1.0.jar app.jar
+# Copy pom.xml and download dependencies
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-# Expose the Spring Boot port
+# Copy source files
+COPY src ./src
+
+# Package the app
+RUN mvn clean package -DskipTests
+
+# === Stage 2: Run the application ===
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+# Copy the jar from the build stage
+COPY --from=build /app/target/*.jar app.jar
+
 EXPOSE 8080
 
-# Run the app
 ENTRYPOINT ["java", "-jar", "app.jar"]
