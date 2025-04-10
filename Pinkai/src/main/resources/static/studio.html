@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pinkai Studio - Our Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+	body {
+	  font-family: 'Poppins', sans-serif;
+	  color: #fff;
+	  overflow-x: hidden;
+	}
+
+  
+
+    /* Top-Right Floating Nav */
+    nav {
+      background-color:transparent;
+      padding: 12px 20px;
+      text-align: center;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 12px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: yellow;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: gold;
+      transform: scale(1.1);
+    }
+
+    /* Team Section */
+    #our-team {
+      padding: 100px 40px 60px;
+      text-align: center;
+    }
+
+    #our-team h2 {
+      font-size: 36px;
+      color: yellow;
+      margin-bottom: 40px;
+    }
+
+    .team-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .team-member {
+      background-color: rgba(255, 255, 0, 0.1);
+      border: 2px solid yellow;
+      border-radius: 15px;
+      padding: 20px;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 20px rgba(255, 255, 0, 0.3);
+    }
+
+    .team-member img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .team-member h3 {
+      margin: 10px 0 5px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 80px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    }
+	#photography-studio,
+	#green-studio {
+	  padding: 80px 40px;
+	  background-color: transparent;
+	}
+
+
+	.studio-container {
+	  display: flex;
+	  flex-wrap: wrap;
+	  align-items: center;
+	  gap: 40px;
+	  max-width: 1200px;
+	  margin: auto;
+	}
+
+	.studio-container.reverse {
+	  flex-wrap: wrap-reverse;
+	}
+
+	.studio-image {
+	  flex: 1;
+	  min-width: 300px;
+	}
+
+	.studio-image img {
+	  width: 100%;
+	  border-radius: 15px;
+	  box-shadow: 0 4px 20px rgba(255, 255, 0, 0.2);
+	}
+
+	.studio-details {
+	  flex: 1;
+	  min-width: 300px;
+	  color: white;
+	  text-align: center;
+	}
+
+	.studio-details h2 {
+	  color: yellow;
+	  font-size: 32px;
+	  margin-bottom: 20px;
+	}
+
+	.studio-details ul {
+	  list-style: none;
+	  padding-left: 0;
+	  line-height: 2;
+	  font-size: 18px;
+	}
+	#bg-video {
+	  position: fixed;
+	  right: 0;
+	  bottom: 0;
+	  min-width: 100%;
+	  min-height: 100%;
+	  z-index: -1;
+	  object-fit: cover;
+	  filter: brightness(0.5); /* Optional: darken video for text readability */
+	}
+
+
+  </style>
+</head>
+<body>
+	<video autoplay muted loop id="bg-video">
+	   <source src="24496-344562743.mp4" type="video/mp4">
+	   Your browser does not support HTML5 video.
+	 </video>
+
+ 
+  <nav>
+    <ul>
+		<li><a href="/">Home</a></li>
+					<li><a href="portfolio.html">Portfolio</a></li> <!-- Link to Services section -->
+					<li><a href="why-choose-us.html">Why Choose Us</a></li>
+					<li><a href="our-team.html">Our Team</a></li>
+					<li><a href="studio.html">Our Studio</a></li>
+					<li><a href="/sayhello.html">Say Hello</a></li>
+    </ul>
+  </nav>
+
+  <section id="photography-studio">
+    <div class="studio-container">
+      <div class="studio-image">
+        <img src="download.jpg" alt="Photography Studio">
+      </div>
+      <div class="studio-details">
+        <h2>PHOTOGRAPHY<br>STUDIO</h2>
+        <ul>
+          <li>• 558 sq ft Sound Conditioned Stage</li>
+          <li>• Fully Air Conditioned</li>
+          <li>• Access to Freight Elevator</li>
+          <li>• 20 Amp House Power Circuits</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="green-studio">
+    <div class="studio-container reverse">
+      <div class="studio-details">
+        <h2>GREEN SCREEN<br>STUDIO</h2>
+        <ul>
+          <li>• 1,028 sq ft Sound Conditioned Stage</li>
+          <li>• Fully Air Conditioned</li>
+          <li>• Access to Freight Elevator</li>
+          <li>• 4 X 4 Lighting Grid Throughout the Stage</li>
+        </ul>
+      </div>
+      <div class="studio-image">
+        <img src="download.jpg" alt="Green Screen Studio">
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer>
+    &copy; 2025 Pinkai Studio. All rights reserved.
+  </footer>
+
+</body>
+</html>

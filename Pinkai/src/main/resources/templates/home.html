@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinkai Studio - Video</title>
+	<style>
+	    body {
+	        font-family: Arial, sans-serif;
+	        margin: 0;
+	        padding: 0;
+	        box-sizing: border-box;
+	    }
+
+	    .video-background {
+	        position: fixed;
+	        top: 0;
+	        left: 0;
+	        width: 100%;
+	        height: 100%;
+	        object-fit: cover;
+	        z-index: -1;
+	    }
+
+	    .content {
+	        position: relative;
+	        z-index: 1;
+	        color: white;
+	        text-align: center;
+	        padding: 20px;
+	        margin-top: 20vh;
+	    }
+
+	    .logo {
+	        position: fixed;
+	        top: 20px;
+	        left: 20px;
+	        z-index: 1000;
+	        width: 100px;
+	        height: auto;
+	    }
+
+
+		/* Navbar */
+		nav {
+		    position: fixed;
+		    top: 20px;
+		    left: 0;
+		    width: 100%;
+		    padding: 15px 610px;
+		    display: flex;
+		    align-items: center;
+		    background-color: transparent;
+		    z-index: 10;
+		}
+
+		.navbar {
+		    list-style: none;
+		    display: flex;
+		    gap: 30px;
+		    margin: 0;
+		    padding: 0;
+		    justify-content: flex-start; /* Push items to the left */
+		}
+
+
+
+		.navbar a {
+		    text-decoration: none;
+		    font-size: 18px;
+		    color: yellow;
+		    font-weight: bold;
+		    transition: color 0.3s, transform 0.3s;
+		}
+
+		.navbar a:hover {
+		    color: white;
+		    transform: scale(1.1);
+		}
+
+	    .hero-heading {
+	        font-size: 50px;
+	        font-weight: bold;
+	        color: white;
+	        text-transform: uppercase;
+	        letter-spacing: 2px;
+	        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+	    }
+
+	    .hero-subtext {
+	        font-size: 20px;
+	        font-weight: 500;
+	        color: white;
+	        margin-top: 10px;
+	        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+	    }
+
+	    #about {
+	        padding: 60px 40px;
+	        background-color: white;
+	        text-align: center;
+	        margin-top: 100vh;
+	    }
+
+	    .about-container {
+	        display: flex;
+	        flex-wrap: wrap;
+	        align-items: center;
+	        justify-content: space-between;
+	        max-width: 1200px;
+	        margin: auto;
+	    }
+
+	    .about-text {
+	        flex: 1 1 55%;
+	        padding: 20px;
+	        color: #333;
+	    }
+
+	    .about-text h2 {
+	        font-size: 36px;
+	        margin: 10px 0;
+	    }
+
+	    .about-text h4 {
+	        font-weight: normal;
+	        color: #c49f62;
+	        margin-bottom: 5px;
+	    }
+
+	    .about-text p {
+	        font-size: 20px;
+	        line-height: 2;
+	    }
+
+	    .about-image {
+	        flex: 1 1 40%;
+	        display: flex;
+	        align-items: center;
+	        justify-content: center;
+	        position: relative;
+	    }
+
+	    .experience-number {
+	        font-size: 300px;
+	        font-weight: 900;
+	        color: #c49f62;
+	        position: relative;
+	        text-align: center;
+	        line-height: 1;
+	        display: flex;
+	        flex-direction: column;
+	        align-items: center;
+	    }
+
+	    .experience-number span {
+	        font-size: 300px;
+	        font-weight: bold;
+	    }
+
+	    .experience-number p {
+	        font-size: 30px;
+	        font-weight: bold;
+	        color: #333;
+	        text-transform: uppercase;
+	        letter-spacing: 2px;
+	        margin-top: -30px;
+	    }
+
+	    #services {
+	        padding: 60px 40px;
+	        background-color: #000;
+	        text-align: center;
+	    }
+
+	    #services h2 {
+	        font-size: 36px;
+	        color: yellow;
+	        margin-bottom: 20px;
+	    }
+
+	    .services-container {
+	        display: flex;
+	        flex-wrap: wrap;
+	        justify-content: center;
+	        gap: 20px;
+	        max-width: 1200px;
+	        margin: auto;
+	    }
+
+	    .service-card {
+	        flex: 1 1 30%;
+	        background-color: #111;
+	        padding: 20px;
+	        border-radius: 10px;
+	        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+	        text-align: center;
+	        transition: transform 0.3s, box-shadow 0.3s;
+	    }
+
+	    .service-card:hover {
+	        transform: translateY(-5px);
+	        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+	    }
+
+	    .service-card h3 {
+	        font-size: 22px;
+	        color: yellow;
+	        margin-bottom: 10px;
+	    }
+
+	    .service-card p {
+	        font-size: 16px;
+	        color: #ddd;
+	        line-height: 1.5;
+	    }
+
+	    .service-card img {
+	        width: 30%;
+	        height: 80px;
+	        object-fit: cover;
+	        border-radius: 10px 10px 0 0;
+	    }
+
+	    #details {
+	        background-color: yellow;
+	        color: black;
+	        padding: 40px;
+	        text-align: left;
+	    }
+
+	    .details-container {
+	        max-width: 800px;
+	        margin-left: 10%;
+	    }
+
+	    #details h2,
+	    #details p {
+	        color: black;
+	    }
+
+	    #details h2 {
+	        font-size: 36px;
+	        margin-bottom: 10px;
+	    }
+
+	    #details p {
+	        font-size: 18px;
+	        line-height: 1.6;
+	        font-weight: bold;
+	    }
+
+	    footer {
+	        background-color: black;
+	        color: white;
+	        text-align: center;
+	        padding: 20px;
+	        font-size: 16px;
+	    }
+
+	    #contact {
+	        background-color: yellow;
+	        padding: 60px 40px;
+	    }
+
+	    .contact-container {
+	        display: flex;
+	        justify-content: space-between;
+	        align-items: flex-start;
+	        max-width: 1200px;
+	        margin: auto;
+	        flex-wrap: wrap;
+	    }
+
+	    .contact-details {
+	        flex: 1;
+	        max-width: 50%;
+	        color: black;
+	    }
+
+	    .contact-info {
+	        flex: 1;
+	        max-width: 40%;
+	        color: black;
+	        text-align: right;
+	        display: flex;
+	        flex-direction: column;
+	        align-items: flex-start;
+	    }
+
+	    .contact-item {
+	        display: flex;
+	        align-items: center;
+	        justify-content: flex-end;
+	        gap: 10px;
+	        margin-bottom: 20px;
+	    }
+
+	    .contact-icon {
+	        width: 30px;
+	        height: 30px;
+	    }
+
+	    .contact-info h3 {
+	        font-size: 20px;
+	        font-weight: bold;
+	        margin: 0;
+	    }
+
+	    .contact-info p {
+	        font-size: 18px;
+	        line-height: 1.5;
+	        margin: 0;
+	    }
+
+	    .reels-link {
+	        margin-top: 20px;
+	        text-align: center;
+	    }
+
+	    .reels-link a {
+	        display: inline-block;
+	        background-color: gold;
+	        color: black;
+	        padding: 12px 24px;
+	        font-size: 18px;
+	        font-weight: bold;
+	        text-decoration: none;
+	        border-radius: 30px;
+	        transition: background-color 0.3s, transform 0.2s;
+	    }
+
+	    .reels-link a:hover {
+	        background-color: #d4af37;
+	        transform: scale(1.05);
+	    }
+
+	    .logo-links {
+	        display: flex;
+	        justify-content: center;
+	        gap: 15px;
+	        margin-top: 20px;
+	        margin-left: -350px;
+	    }
+
+	    .logo-img {
+	        width: 35px;
+	        height: auto;
+	        transition: transform 0.3s ease;
+	    }
+
+	    .logo-img:hover {
+	        transform: scale(1.1);
+	    }
+
+	    .studio-name {
+	        font-size: 24px;
+	        font-weight: bold;
+	        color: rgb(0, 0, 0);
+	        text-transform: uppercase;
+	        letter-spacing: 2px;
+	        text-shadow: 3px 3px 10px rgb(0, 128, 255);
+	        text-align: left;
+	        margin-bottom: 20px;
+	        position: relative;
+	        left: 20px;
+	    }
+
+	    .get-closer-text {
+	        font-size: 60px;
+	        font-weight: 900;
+	        color: transparent;
+	        background: linear-gradient(45deg, #ffeb3b, rgb(64, 0, 64), rgb(0, 0, 64));
+	        background-clip: text;
+	        -webkit-background-clip: text;
+	        text-align: left;
+	        line-height: 1.2;
+	        letter-spacing: 3px;
+	        text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.2);
+	        animation: glow 3s ease-in-out infinite alternate;
+	        margin-bottom: 30px;
+	        padding-left: 20px;
+	    }
+		
+	</style>
+
+</head>
+<body>
+	
+    <video class="video-background" autoplay muted loop>
+        <source src="WhatsApp Video 2025-04-02 at 22.34.48_fd22c72b.mp4" type="video/mp4"> 
+		
+    </video>
+    <img src="Pinaki Studio.png" alt="Logo" class="logo"> <!-- Replace with your logo path -->
+	
+    <div class="content">
+		 <h1 class="hero-heading">Welcome TO Pinkai Studio</h1>
+		    <p class="hero-subtext">Your one-stop destination for film production, music production, and more</p>
+			<div class="reels-link">
+			      <a href="https://youtu.be/puF9CkvmJt0?si=7HkEG02x0SLUlV9F" target="_blank">Watch Our Reels</a>
+			  </div>
+		</div>
+        <nav>
+			<ul class="navbar">
+					<li><a href="/">Home</a></li>
+									<li><a href="portfolio.html">Portfolio</a></li> <!-- Link to Services section -->
+									<li><a href="why-choose-us.html">Why Choose Us</a></li>
+									<li><a href="our-team.html">Our Team</a></li>
+									<li><a href="studio.html">Our Studio</a></li>
+
+									<li><a href="/sayhello.html">Say Hello</a></li>
+
+			      </ul>
+        </nav>
+    </div>
+
+    <!-- About Section -->
+   
+	<section id="about">
+	  <div class="about-container">
+	    <div class="about-text">
+	      <h4>— about</h4>
+	      <h2>WHO WE ARE</h2>
+	      <p>
+	        Pinkai Studio, a creative powerhouse of professionals with more than 10 years of experience, ensures all the elements of perfect Ad Film making. We build your brand so that you can build your business! With our extensive experience in the industry coupled with long-term relationships with clients, Pinkai Studio has become one of the most trusted production houses in India.
+	      </p>
+	      <p>
+	        Pinkai Studio was founded in 1997 by experienced artists and filmmakers who have contributed immensely to Indian cinema. With a strong vision and a passionate team, we continue to push creative boundaries in every project we take on.
+	      </p>
+	    </div>
+	
+		<div class="about-image">
+		    <div class="experience-number">
+		        <span>10</span>
+		        <p>Years Experience</p>
+		    </div>
+		</div>
+
+	  </div>
+	</section>
+
+	<section id="services">
+	    <h2>Our Services</h2>
+	    <div class="services-container">
+	        <div class="service-card">
+	            <a href="https://youtu.be/puF9CkvmJt0?si=7HkEG02x0SLUlV9F" target="_blank">
+	                <img src="images.png" alt="Film Production">
+	            </a>
+	            <h3>Film & Video Production</h3>
+	            <p>Making feature films, short films, TV commercials, corporate videos, and social media content.</p>
+	        </div>
+	        <div class="service-card">
+	            <a href="https://your-link-for-music-production.com" target="_blank">
+	                <img src="Music Production img.png" alt="Music Production">
+	            </a>
+	            <h3>Music Production</h3>
+	            <p>Creating original music, albums, and soundtracks.</p>
+	        </div>
+	        <div class="service-card">
+	            <a href="https://your-link-for-event-management.com" target="_blank">
+	                <img src="Event Management img.jpg" alt="Event Management">
+	            </a>
+	            <h3>Event Management</h3>
+	            <p>Planning and organizing events for brands, launches, and more.</p>
+	        </div>
+	        <div class="service-card">
+	            <a href="https://your-link-for-brand-endorsements.com" target="_blank">
+	                <img src="Brand img.jpg" alt="Brand Endorsements">
+	            </a>
+	            <h3>Brand Endorsements & Promotions</h3>
+	            <p>Helping brands reach their audience with creative video campaigns.</p>
+	        </div>
+	        <div class="service-card">
+	            <a href="https://your-link-for-documentaries.com" target="_blank">
+	                <img src="Doucumentry logo.webp" alt="Documentaries">
+	            </a>
+	            <h3>Documentaries & Web Series</h3>
+	            <p>Creating engaging documentaries and web series.</p>
+	        </div>
+	        <div class="service-card">
+	            <a href="https://your-link-for-photography.com" target="_blank">
+	                <img src="Photography img.jpg" alt="Photography & Green Screen">
+	            </a>
+	            <h3>Photography & Green Screen Studios</h3>
+	            <p>Providing fully-equipped studios with professional lighting and air conditioning.</p>
+	        </div>
+	    </div>
+	</section>
+
+	
+	<section id="contact">
+	    <div class="contact-container">
+	        <!-- Left Side: Studio Details -->
+	        <div class="contact-details">
+
+				<h2 class="studio-name">*Pinkai Studio*</h2>
+									<p class="get-closer-text">
+									    GET CLOSER<br>
+									    WITH US
+									</p>
+	            
+	            <!-- Logo Links Section -->
+	            <div class="logo-links">
+	                <a href="https://example.com/logo1" target="_blank">
+	                    <img src="Facebook logo.avif" alt="Logo 1" class="logo-img">
+	                </a>
+	                <a href="https://example.com/logo2" target="_blank">
+	                    <img src="Insta logo.jpg" alt="Logo 2" class="logo-img">
+	                </a>
+	                <a href="https://example.com/logo3" target="_blank">
+	                    <img src="Twitter logo.png" alt="Logo 3" class="logo-img">
+	                </a>
+	                <a href="https://www.youtube.com/" target="_blank">
+	                    <img src="Youtube logo.png" alt="Logo 4" class="logo-img">
+	                </a>
+	            </div>
+	        </div>
+
+
+	        <!-- Right Side: Contact Info -->
+	        <div class="contact-info">
+				<h2>Address</h2>
+
+	            <div class="contact-item">
+					
+	                <img src="Call us img.png" alt="Call Icon" class="contact-icon"> <!-- Replace with actual icon path -->
+	                <p>+91-6393536060</p>
+	            </div>
+
+				<div class="contact-item">
+				    <img src="Email img.png" alt="Email Icon" class="contact-icon"> <!-- Replace with actual icon path -->
+				    <p><a href="mailto:info@pinakistudio.com">info@pinakistudio.com</a></p>
+				</div>
+
+
+	            <div class="contact-item">
+	                <img src="Location logo img.png" alt="Location Icon" class="contact-icon"> <!-- Replace with actual icon path -->
+	                <p>
+	                   A321 Master Mind 4, Royal
+					    Palms, Aareymilk Colony,
+						 Mumbai, Goregaon East, 
+	                    Maharashtra, India, 400065
+	                </p>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+
+
+    <footer>
+        <p>&copy; 2025 Pinkai Studio. All rights reserved.</p>
+    </footer>
+</body>
+</html>

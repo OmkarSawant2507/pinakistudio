@@ -1,0 +1,362 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Why Choose Us - Pinkai Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: transparent;
+            z-index: 10;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .navbar {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            font-size: 18px;
+            color: yellow;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .navbar a:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Video Background */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .video-container video {
+                display: none;
+            }
+        }
+
+        /* Why Choose Us Section */
+        #why-choose-us {
+            padding: 100px 40px 60px;
+            text-align: center;
+        }
+
+        #why-choose-us h2 {
+            font-size: 36px;
+            color: yellow;
+            margin-bottom: 20px;
+        }
+
+        #why-choose-us p {
+            font-size: 18px;
+            color: #ccc;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: #111;
+            border-radius: 10px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(255, 255, 0, 0.3);
+        }
+
+        .feature-card h3 {
+            color: yellow;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #ddd;
+            font-size: 15px;
+        }
+
+		/* Contact Section */
+		    #contact {
+		        background-color: yellow;
+		        padding: 60px 40px;
+		    }
+
+		    .contact-container {
+		        display: flex;
+		        justify-content: space-between;
+		        align-items: flex-start;
+		        max-width: 1200px;
+		        margin: auto;
+		        flex-wrap: wrap;
+		    }
+
+		    .contact-details {
+		        flex: 1;
+		        max-width: 50%;
+		        color: black;
+		    }
+
+		    .studio-name {
+		        font-size: 24px;
+		        font-weight: bold;
+		        color: rgb(0, 0, 0);
+		        text-transform: uppercase;
+		        letter-spacing: 2px;
+		        text-shadow: 3px 3px 10px rgb(0, 128, 255);
+		        text-align: left;
+		        margin-bottom: 20px;
+		        position: relative;
+		        left: 20px;
+		    }
+
+		    .get-closer-text {
+		        font-size: 60px;
+		        font-weight: 900;
+		        color: transparent;
+		        background: linear-gradient(45deg, #ffeb3b, rgb(64, 0, 64), rgb(0, 0, 64));
+		        background-clip: text;
+		        -webkit-background-clip: text;
+		        text-align: left;
+		        line-height: 1.2;
+		        letter-spacing: 3px;
+		        text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.2);
+		        animation: glow 3s ease-in-out infinite alternate;
+		        margin-bottom: 30px;
+		        padding-left: 20px;
+		    }
+
+		    .logo-links {
+		        display: flex;
+		        justify-content: center;
+		        gap: 15px;
+		        margin-top: 20px;
+		        margin-left: -350px;
+		    }
+
+		    .logo-img {
+		        width: 35px;
+		        height: auto;
+		        transition: transform 0.3s ease;
+		    }
+
+		    .logo-img:hover {
+		        transform: scale(1.1);
+		    }
+
+		    .contact-info {
+		        flex: 1;
+		        max-width: 40%;
+		        color: black;
+		        text-align: right;
+		        display: flex;
+		        flex-direction: column;
+		        align-items: flex-start;
+		    }
+
+		    .contact-info h2 {
+		        font-size: 24px;
+		        font-weight: bold;
+		        margin-bottom: 20px;
+		    }
+
+		    .contact-item {
+		        display: flex;
+		        align-items: center;
+		        justify-content: flex-end;
+		        gap: 10px;
+		        margin-bottom: 20px;
+		    }
+
+		    .contact-icon {
+		        width: 30px;
+		        height: 30px;
+		    }
+
+		    .contact-info p {
+		        font-size: 18px;
+		        line-height: 1.5;
+		        margin: 0;
+		    }
+
+		    /* Footer */
+		    footer {
+		        background-color: #222;
+		        color: white;
+		        text-align: center;
+		        padding: 15px;
+		        font-size: 14px;
+		    }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="Pinaki Studio.png" alt="Logo">
+            </a>
+        </div>
+        <ul class="navbar">
+			<li><a href="/">Home</a></li>
+							<li><a href="portfolio.html">Portfolio</a></li> <!-- Link to Services section -->
+							<li><a href="why-choose-us.html">Why Choose Us</a></li>
+							<li><a href="our-team.html">Our Team</a></li>
+							<li><a href="studio.html">Our Studio</a></li>
+
+							<li><a href="/sayhello.html">Say Hello</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- Background Video -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="24496-344562743.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us">
+        <h2>Why Choose Us</h2>
+        <p>Choose us for unparalleled expertise and a commitment to turning your vision into reality!</p>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>Experienced Professionals</h3>
+                <p>Our team has years of experience in delivering exceptional work.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Top-notch Equipment</h3>
+                <p>We use the latest tools and technology to bring your vision to life.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Customer-Centric Approach</h3>
+                <p>Your satisfaction is our top priority.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Competitive Pricing</h3>
+                <p>We provide high-quality services at affordable prices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container">
+            <!-- Left Side: Studio Details -->
+            <div class="contact-details">
+                <h2 class="studio-name">*Pinkai Studio*</h2>
+                <p class="get-closer-text">
+                    GET CLOSER<br>
+                    WITH US
+                </p>
+
+                <!-- Logo Links Section -->
+                <div class="logo-links">
+                    <a href="https://example.com/logo1" target="_blank">
+                        <img src="Facebook logo.avif" alt="Facebook" class="logo-img">
+                    </a>
+                    <a href="https://example.com/logo2" target="_blank">
+                        <img src="Insta logo.jpg" alt="Instagram" class="logo-img">
+                    </a>
+                    <a href="https://example.com/logo3" target="_blank">
+                        <img src="Twitter logo.png" alt="Twitter" class="logo-img">
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank">
+                        <img src="Youtube logo.png" alt="YouTube" class="logo-img">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side: Contact Info -->
+            <div class="contact-info">
+                <h2>Address</h2>
+
+                <div class="contact-item">
+                    <img src="Call us img.png" alt="Call Icon" class="contact-icon">
+                    <p>+91-6393536060</p>
+                </div>
+
+                <div class="contact-item">
+                    <img src="Email img.png" alt="Email Icon" class="contact-icon">
+                    <p><a href="mailto:info@pinakistudio.com">info@pinakistudio.com</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <img src="Location logo img.png" alt="Location Icon" class="contact-icon">
+                    <p>
+                        A321 Master Mind 4, Royal<br>
+                        Palms, Aareymilk Colony,<br>
+                        Mumbai, Goregaon East,<br>
+                        Maharashtra, India, 400065
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Pinkai Studio. All rights reserved.
+    </footer>
+
+</body>
+</html>
